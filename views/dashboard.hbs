@@ -1,5 +1,22 @@
 {{> menu id="dashboard"}}
 
+<h1 class="ui small center aligned icon header">
+  <i class="violet user icon"></i>
+  Welcome {{member.firstname}}</h1>
+<h1 class="ui center aligned header">
+  <a href="/member">
+    <button class="ui green button">Edit Your Personal Details</button>
+  </a>
+</h1>
+
 <section class="ui segment">
-  {{> mainpanel}}
+  <h2 class="ui center aligned header">
+    {{station.name}}
+  </h2>
+  {{> listReading}}
+  <br>
+  <div class="ui basic right aligned segment">
+    <a href="/stations/${station.id}"> <i class="teal big open folder icon"></i></a>
+    <a href="/dashboard/deleteStation/${station.id}"> <i class="red big trash icon"></i></a>
+  </div>
 </section>

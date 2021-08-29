@@ -1,0 +1,39 @@
+<table class="ui celled padded table">
+  <thead>
+  <tr>
+    <th>Date/Time</th>
+    <th>Code</th>
+    <th>Temperature (<span>&#176;</span>C)</th>
+    <th>Wind Speed (km/hr)</th>
+    <th>Wind Direction (<span>&#176;</span>)</th>
+    <th>Pressure (mbar)</th>
+  </tr>
+  </thead>
+  <tbody>
+    {{#each station.readings }}
+      <tr>
+        <td>
+          ${reading.date}
+        </td>
+        <td>
+          ${reading.code}
+        </td>
+        <td>
+          ${reading.temperature}
+        </td>
+        <td>
+          ${reading.windSpeed}
+        </td>
+        <td>
+          ${reading.windDirection}
+        </td>
+        <td>
+          ${reading.pressure}
+        </td>
+        <td>
+          <a href="/stations/${_station.id}/deleteReading/${reading.id}"><i class="red trash link icon"></i></a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
