@@ -10,29 +10,29 @@
   </tr>
   </thead>
   <tbody>
-    {{#each station.readings }}
+    {{#each stations}}
+      {{readings}}
       <tr>
-        <td>
-          {{date}}
-        </td>
-        <td>
-          {{code}}
-        </td>
-        <td>
-          {{temperature}}
-        </td>
-        <td>
-          {{windSpeed}}
-        </td>
-        <td>
-          {{windDirection}}
-        </td>
-        <td>
-          {{pressure}}
-        </td>
-        <td>
-          <a href="/stations/${_station.id}/deleteReading/${reading.id}"><i class="red trash link icon"></i></a>
-        </td>
+        {{stations.readings}}
+          <td>
+            {{code}}
+          </td>
+          <td>
+            {{temperature}}
+          </td>
+          <td>
+            {{windSpeed}}
+          </td>
+          <td>
+            {{windDirection}}
+          </td>
+          <td>
+            {{pressure}}
+          </td>
+          <td>
+            <a href="/stations/${_station.id}/deleteReading/${reading.id}"><i class="red trash link icon"></i></a>
+          </td>
+        {{/each}}
       </tr>
     {{/each}}
   </tbody>

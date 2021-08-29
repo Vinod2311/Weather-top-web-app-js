@@ -1,5 +1,5 @@
 'use strict';
 
-const readingsCollection = require('./readings-store.json').stationCollection;
+const stationCollection = require('./readings-store.json').stationCollection;
 
-module.exports = readingsCollection;
+module.exports = stationCollection;
