@@ -1,4 +1,4 @@
-Welcome to the Glitch Template
+Weather-Top in javascript
 ==============================
 
 A starter project for learning Glitch.
