@@ -1,7 +1,6 @@
 <table class="ui celled padded table">
   <thead>
   <tr>
-    <th>{{name}}</th>
     <th>Date/Time</th>
     <th>Code</th>
     <th>Temperature (<span>&#176;</span>C)</th>
@@ -12,10 +11,9 @@
   </thead>
   <tbody>
     {{#each stations}}
-      
       <tr>
           <td>
-            {{code}}
+            {{readings}}
           </td>
           <td>
             {{temperature}}
@@ -32,6 +30,7 @@
           <td>
             <a href="/stations/${_station.id}/deleteReading/${reading.id}"><i class="red trash link icon"></i></a>
           </td>
+        
       </tr>
     {{/each}}
   </tbody>

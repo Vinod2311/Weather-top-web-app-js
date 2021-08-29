@@ -10,7 +10,7 @@ const dashboard = {
       title: "Dashboard",
       stations: stationCollection,
     };
-    logger.info("dashboard rendering",stationCollection.id);
+    logger.info("dashboard rendering",stationCollection);
     response.render("dashboard", viewData);
   },
 };
