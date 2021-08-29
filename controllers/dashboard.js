@@ -10,9 +10,10 @@ const dashboard = {
       title: "Dashboard",
       stations: stationCollection,
     };
-    logger.info("dashboard rendering",stationCollection.name);
+    logger.info("dashboard rendering",stationCollection.id);
     response.render("dashboard", viewData);
   },
 };
+
 
 module.exports = dashboard;
