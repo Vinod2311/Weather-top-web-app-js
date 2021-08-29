@@ -5,11 +5,12 @@ const stationCollection = require('../models/readings-store.js');
 
 const dashboard = {
   index(request, response) {
-    logger.info("dashboard rendering");
+    
     const viewData = {
       title: "Dashboard",
       stations: stationCollection,
     };
+    logger.info("dashboard rendering",stationCollection.name);
     response.render("dashboard", viewData);
   },
 };
