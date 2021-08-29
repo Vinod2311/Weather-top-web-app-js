@@ -10,10 +10,9 @@
   </tr>
   </thead>
   <tbody>
-    {{#each stations}}
-      {{readings}}
+    {{#each stationCollection}}
+      {{name}}
       <tr>
-        {{stations.readings}}
           <td>
             {{code}}
           </td>
@@ -32,7 +31,6 @@
           <td>
             <a href="/stations/${_station.id}/deleteReading/${reading.id}"><i class="red trash link icon"></i></a>
           </td>
-        {{/each}}
       </tr>
     {{/each}}
   </tbody>
