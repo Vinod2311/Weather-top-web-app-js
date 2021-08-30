@@ -2,6 +2,7 @@
   "stationCollection": [
     {
       "id" : "01",
+      "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "name": "Tramore",
       "readings": [
         {
@@ -32,6 +33,7 @@
     },
     {
      "id" : "05",
+     "userId": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
      "name": "Dunmore",
      "readings": [
        {
