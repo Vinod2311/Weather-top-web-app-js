@@ -9,9 +9,10 @@
   </a>
 </h1>
 
+{{#each stations}}
 <section class="ui segment">
   <h2 class="ui center aligned header">
-    {{station.name}}
+    {{name}}
   </h2>
   {{> listReading}}
   <br>
@@ -20,3 +21,5 @@
     <a href="/dashboard/deleteStation/{{station.id}}"> <i class="red big trash icon"></i></a>
   </div>
 </section>
+{{/each}}
+{{> addStation}}
