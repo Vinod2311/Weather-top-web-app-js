@@ -10,7 +10,7 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: "Dashboard",
-      stations: stationStore.getUserStations(loggedInUser.id)
+      stations: stationStore.getUserStations(loggedInUser.userId)
     };
     logger.info("dashboard rendering",stationStore.getAllStations());
     response.render("dashboard", viewData);
