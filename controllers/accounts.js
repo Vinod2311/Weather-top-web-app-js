@@ -28,7 +28,7 @@ const accounts = {
     const viewData = {
       title: "Login to the Service"
     };
-    response.render("signup", viewData);
+    response.render("signUp", viewData);
   },
   
   register(request, response) {
