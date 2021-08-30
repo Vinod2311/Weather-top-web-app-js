@@ -1,12 +1,12 @@
 {
   "stationCollection": [
     {
-      "id" : "01",
+      "id": "01",
       "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "name": "Tramore",
       "readings": [
         {
-          "id" : "02",
+          "id": "02",
           "code": 800,
           "temperature": 0.5,
           "windSpeed": 3.5,
@@ -14,7 +14,7 @@
           "windDirection": 90
         },
         {
-          "id" : "03",
+          "id": "03",
           "code": 600,
           "temperature": 6,
           "windSpeed": 2,
@@ -22,7 +22,7 @@
           "windDirection": 96
         },
         {
-          "id" : "04",
+          "id": "04",
           "code": 700,
           "temperature": 8,
           "windSpeed": 1,
@@ -32,27 +32,37 @@
       ]
     },
     {
-     "id" : "05",
-     "userId": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
-     "name": "Dunmore",
-     "readings": [
-       {
-         "id" : "06",
-         "code": 700,
-         "temperature": 8,
-         "windSpeed": 1,
-         "pressure": 999,
-         "windDirection": 98
-       },
-       {
-         "id" : "07",
-         "code": 200,
-         "temperature": 0.5,
-         "windSpeed": 3.5,
-         "pressure": 1000,
-         "windDirection": 102
-       }
-     ]
-   }
- ]
+      "id": "05",
+      "userId": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
+      "name": "Dunmore",
+      "readings": [
+        {
+          "id": "06",
+          "code": 700,
+          "temperature": 8,
+          "windSpeed": 1,
+          "pressure": 999,
+          "windDirection": 98
+        },
+        {
+          "id": "07",
+          "code": 200,
+          "temperature": 0.5,
+          "windSpeed": 3.5,
+          "pressure": 1000,
+          "windDirection": 102
+        }
+      ]
+    },
+    {
+      "id": "ddc7bf70-09ec-11ec-8f93-4fa58eb01d77",
+      "name": "Dublin",
+      "readings": []
+    },
+    {
+      "id": "fd0b49b0-09ec-11ec-8f93-4fa58eb01d77",
+      "name": "dummy",
+      "readings": []
+    }
+  ]
 }
