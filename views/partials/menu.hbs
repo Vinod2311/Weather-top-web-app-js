@@ -1,11 +1,21 @@
 <nav class="ui menu">
-  <header class="ui header item"> Glitch Template 2 </header>
+  <header class="ui header item"><a href="/"> WeatherTop </a></header>
+  <header class="item"> WeatherTop Stations &trade; &reg;</header>
   <div class="right menu">
-    <a id="dashboard" class="item" href="/dashboard"> Dashboard  </a>
+    {{#if session.contains("logged_in_Memberid")}}
+    <a id="dashboard" class="item" href="/dashboard"> Dashboard </a>
+    <a id="aboutLoggedIn" class="item" href="/about"> About </a>
+    <a id="logout" class="item" href="/logout"> Logout </a>
+    #{/if}
+    #{if session.isEmpty()}
     <a id="about" class="item" href="/about"> About </a>
+    <a id="signup" class="item" href="/signup"> Signup </a>
+    <a id="login" class="item" href="/login"> Login </a>
+    #{/if}
+
   </div>
 </nav>
 
 <script>
-  $("#{{id}}").addClass("active item");
+    $("${_id}").addClass("active item");
 </script>
