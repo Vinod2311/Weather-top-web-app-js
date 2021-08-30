@@ -1,18 +1,18 @@
 "use strict";
 
 const logger = require("../utils/logger");
-const stationCollection = require('../models/readings-store.js');
+
 const accounts = require("accounts.js")
-const userStore = require("../models/user-store.js");
+const stationStore = require("../models/station-store.js");
 
 const dashboard = {
   index(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: "Dashboard",
-      stations: userStore.getUser,
+      stations: stationStore.getUserStations(loggedInUser.id)
     };
-    logger.info("dashboard rendering",stationCollection);
+    logger.info("dashboard rendering",stationStore.getAllStations());
     response.render("dashboard", viewData);
   },
 };

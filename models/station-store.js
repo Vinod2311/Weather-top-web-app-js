@@ -21,14 +21,14 @@ const stationStore = {
     return this.store.findBy(this.collection, { userid: userid });
   },
 
-  addStation(playlist) {
-    this.store.add(this.collection, playlist);
+  addStation(station) {
+    this.store.add(this.collection, station);
     this.store.save();
   },
 
   removeStation(id) {
-    const playlist = this.getPlaylist(id);
-    this.store.remove(this.collection, playlist);
+    const station = this.getStation(id);
+    this.store.remove(this.collection, station);
     this.store.save();
   },
 
@@ -37,33 +37,26 @@ const stationStore = {
     this.store.save();
   },
 
-  addReading(id, song) {
-    const station = this.getPlaylist(id);
-    playlist.songs.push(song);
-
-    let duration = 0;
-    for (let i = 0; i < playlist.songs.length; i++) {
-      duration += playlist.songs[i].duration;
-    }
-
-    playlist.duration = duration;
+  addReading(id, reading) {
+    const station = this.getStation(id);
+    station.readings.push(reading);
     this.store.save();
   },
 
-  removeReading(id, songId) {
-    const playlist = this.getPlaylist(id);
-    const songs = playlist.songs;
-    _.remove(songs, { id: songId });
+  removeReading(id, readingId) {
+    const station = this.getStation(id);
+    const readings = station.readings;
+    _.remove(readings, { id: readingId });
     this.store.save();
   },
 
-  getReading(id, songId) {
-    const playList = this.store.findOneBy(this.collection, { id: id });
-    const songs = playList.songs.filter(song => song.id == songId);
-    return songs[0];
+  getReading(id, readingId) {
+    const station = this.store.findOneBy(this.collection, { id: id });
+    const readings = station.readings.filter(reading => reading.id == readingId);
+    return readings[0];
   },
 
   
 };
 
-module.exports = playlistStore;
+module.exports = stationStore;
