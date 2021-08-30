@@ -22,7 +22,7 @@ router.get("/about", about.index);
 router.get("/stations/:id", stationCtrl.index);
 router.get("/dashboard/deleteStation/:id", dashboard.deleteStation);
 router.get("/stations/:id/deleteReading/:readingId", stationCtrl.deleteReading);
-router.get("/stations/:id/addReading", stationCtrl.addReading);
-router.get("/dashboard/addStation", dashboard.addStation)
+router.post("/stations/:id/addReading", stationCtrl.addReading);
+router.post("/dashboard/addStation", dashboard.addStation)
 
 module.exports = router;
