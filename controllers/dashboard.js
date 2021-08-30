@@ -12,7 +12,7 @@ const dashboard = {
       title: "Dashboard",
       stations: stationStore.getUserStations(loggedInUser.userId)
     };
-    logger.info("dashboard rendering",loggedInUser);
+    logger.info("dashboard rendering",loggedInUser["email"]);
     response.render("dashboard", viewData);
   },
 };
