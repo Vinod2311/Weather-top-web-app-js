@@ -2,7 +2,7 @@
 
 const logger = require("../utils/logger");
 
-const accounts = require("accounts.js")
+const accounts = require("./accounts.js")
 const stationStore = require("../models/station-store.js");
 
 const dashboard = {
