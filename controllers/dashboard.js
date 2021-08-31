@@ -29,11 +29,11 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentUser(request);
     const newStation = {
       id: uuid.v1(),
-      userid: loggedInUser.id,
+      userid: loggedInUser.userId,
       name: request.body.name,
       readings: []
     };
-    logger.debug("Creating a new Station", newStation);
+    logger.info("Creating a new Station", newStation);
     stationStore.addStation(newStation);
     response.redirect("/dashboard");
   }
