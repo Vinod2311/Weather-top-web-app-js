@@ -29,7 +29,7 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentUser(request);
     const newStation = {
       id: uuid.v1(),
-      userid: loggedInUser.userId,
+      userId: loggedInUser.userId,
       name: request.body.name,
       readings: []
     };
