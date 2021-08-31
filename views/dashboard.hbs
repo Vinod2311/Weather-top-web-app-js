@@ -12,13 +12,15 @@
 {{#each viewData.stations}}
   <section class="ui segment">
     <h2 class="ui center aligned header">
-      {{name}}
+      {{id}}
     </h2>
     {{> listReading}}
+    {{name}}
     <br>
+    
     <div class="ui basic right aligned segment">
-      <a href="/stations/{{station.id}}"> <i class="teal big open folder icon"></i></a>
-      <a href="/dashboard/deleteStation/{{station.id}}"> <i class="red big trash icon"></i></a>
+      <a href="/stations/{{id}}"> <i class="teal big open folder icon"></i></a>
+      <a href="/dashboard/deleteStation/{{id}}"> <i class="red big trash icon"></i></a>
     </div>
   </section>
 {{/each}}
