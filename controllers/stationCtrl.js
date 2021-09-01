@@ -26,7 +26,7 @@ const stationCtrl = {
     reading.id = uuid.v1();
     stationStore.addReading(id, reading);
     logger.info('adding reading {{id}}');
-    response.redirect(`stations/${id}`);
+    response.render();
   }
     
 };
