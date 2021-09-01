@@ -40,6 +40,8 @@ const dashboard = {
       id: uuid.v1(),
       userId: loggedInUser.userId,
       name: request.body.name,
+      latitude: request.body.lat,
+      longitude: request.body.lng,
       readings: []
     };
     logger.info("Creating a new Station", newStation);
