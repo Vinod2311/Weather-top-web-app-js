@@ -14,7 +14,7 @@ const dashboard = {
       title: "Dashboard",
       stations: stationStore.getUserStations(loggedInUser.userId)
     };
-    logger.info("dashboard rendering",dummy);
+    logger.info("dashboard rendering",);
     response.render("dashboard", {viewData, loggedInUser});
   },
   
@@ -22,6 +22,14 @@ const dashboard = {
     const stationId = request.params.id;
     logger.debug(`Deleting station ${stationId}`);
     stationStore.removeStation(stationId);
+    response.redirect("/dashboard");
+  },
+  
+  deleteReading(request, response) {
+    const stationId = request.params.id;
+    const readingId = request.params.readingId;
+    //stationStore.removeReading(stationId,readingId);
+    logger.info("station id", readingId);
     response.redirect("/dashboard");
   },
   

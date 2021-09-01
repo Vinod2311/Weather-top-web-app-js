@@ -52,10 +52,10 @@ const stationStore = {
   },
   
   dummy(id,readingId){
-    const station = id;
-    const readingId = readingId;
+    const stationId = id;
+    const reading_Id = readingId;
     //const readings = station.readings;
-    logger.info("readings", station)
+    logger.info("readings", stationId)
   },
 
   getReading(id, readingId) {
