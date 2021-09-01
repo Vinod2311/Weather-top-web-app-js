@@ -1,14 +1,17 @@
 "use strict";
 
 const logger = require("../utils/logger");
+const stationStore = require("../models/station-store.js");
+const accounts = require("./accounts.js")
 
 const about = {
   index(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
     logger.info("about rendering");
     const viewData = {
-      title: "About Template 1",
+      title: "About",
     };
-    response.render("about", viewData);
+    response.render("about", {viewData, loggedInUser});
   },
 };
 

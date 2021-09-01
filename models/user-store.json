@@ -1,56 +1,25 @@
 {
-   "stationCollection": [
-     {
-       "id" : "01",
-       "name": "Tramore",
-       "readings": [
-       {
-         "id" : "02",
-         "code": 800,
-         "temperature": 0.5,
-         "windSpeed": 3.5,
-         "pressure": 1002,
-         "windDirection": 90
-       },
-       {
-       "id" : "03",
-       "code": 600,
-       "temperature": 6,
-       "windSpeed": 2,
-       "pressure": 1004,
-       "windDirection": 96
-       },
-       {
-       "id" : "04",
-       "code": 700,
-       "temperature": 8,
-       "windSpeed": 1,
-       "pressure": 1005,
-       "windDirection": 101
-       }
-     ]
-   },
-   {
-     "id" : "05",
-     "name": "Dunmore",
-     "readings": [
-       {
-         "id" : "06",
-         "code": 700,
-         "temperature": 8,
-         "windSpeed": 1,
-         "pressure": 999,
-         "windDirection": 98
-       },
-       {
-         "id" : "07",
-         "code": 200,
-         "temperature": 0.5,
-         "windSpeed": 3.5,
-         "pressure": 1000,
-         "windDirection": 102
-       }
-     ]
-   }
- ]
+  "users": [
+    {
+      "firstName": "homer",
+      "lastName": "simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "userId": "3ad52697-6d98-4d80-8273-084de55a86c0"
+    },
+    {
+      "firstName": "marge",
+      "lastName": "simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "userId": "2b6f0989-7b7f-4a38-ad26-aa06b922d751"
+    },
+    {
+      "firstName": "Vinod",
+      "lastName": "Yadav",
+      "email": "vinod@gmail.com",
+      "password": "secret",
+      "id": "3e6da450-0b43-11ec-9526-e1316f9b58a3"
+    }
+  ]
 }

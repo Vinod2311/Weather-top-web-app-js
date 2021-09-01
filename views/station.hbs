@@ -1,0 +1,9 @@
+{{> menu }}
+<section class="ui segment">
+  <h2 class="ui center aligned header">
+    {{viewData.station.name}}
+  </h2>
+  {{>listReading viewData.station}}
+  {{>addReading viewData.station}} 
+</section>
+<br>

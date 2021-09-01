@@ -1,0 +1,100 @@
+<div class="ui  cards">
+
+  <div class=" red card">
+    <div class="content">
+      <i class="huge right floated blue city icon"></i>
+      <div class="header">{{station.name}}</div>
+      <div class="description">
+        <p>Lat: {{latitude}} <span>&#176;</span></p>
+        <p>Lng: {{longitude}} <span>&#176;</span></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="red card">
+    <div class="content">
+      <i class=" huge right floated blue cloud sun icon"></i>
+      <div class="header">Weather</div>
+      <div class="description">
+        <p>{{latestReading.translatedWeatherCode}}</p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="red card">
+    <div class="content">
+      <i class="huge right floated blue thermometer icon"></i>
+      <div class="header">Temp</div>
+      <div class="description">
+        <p>{{latestReading.temperature}} <span>&#176;</span>C</p>
+        <p>{{latestReading.temperatureFahrenheit}} F</p>
+        <br>
+        {{#if station.trendTemp == "rising"}}
+        <i class="huge right floated orange arrow up icon"></i>
+        {{/if}}
+        {{#if _station.trendTemp == "falling"}}
+        <i class="huge right floated green arrow down icon"></i>
+        {{/if}}
+        {{#if _station.trendTemp == "steady"}}
+        <i class="huge right floated teal arrow right icon"></i>
+        {{/if}}
+        <p>Max: {{station.maxTemp}} <span>&#176;</span>C</p>
+        <p>Min: {{station.minTemp}} <span>&#176;</span>C</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="red card">
+    <div class="content">
+      <i class="huge right floated blue wind icon"></i>
+      <div class="header">Wind</div>
+      <div class="description">
+        <p>{{latestReading.windBeaufort}} bft</p>
+        <p>{{latestReading.windDirectionCompass}}</p>
+
+        {{#if station.trendWindSpeed == "rising"}}
+        <i class="huge right floated orange arrow up icon"></i>
+        {{/if}}
+        {{#if station.trendWindSpeed == "falling"}}
+        <i class="huge right floated green arrow down icon"></i>
+        {{/if}}
+        {{#if station.trendWindSpeed == "steady"}}
+        <i class="huge right floated teal arrow right icon"></i>
+        {{/if}}
+        <br>
+        <p>Feels like:</p>
+        <p>{{latestReading.windChill}} <span>&#176;</span>C</p>
+        <br>
+        <p>Max: {{station.maxWindBeaufort}} bft</p>
+        <p>Min: {{station.minWindBeaufort}} bft</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="red card">
+    <div class="content">
+      <i class="huge right floated blue cloud download icon"></i>
+      <div class="header">Pressure</div>
+      <div class="description">
+        <p>{{latestReading.pressure}} kPa</p>
+        <br>
+        {{#if station.trendPressure == "rising"}}
+        <i class="huge right floated orange arrow up icon"></i>
+        {{/if}}
+        {{#if station.trendPressure == "falling"}}
+        <i class="huge right floated green arrow down icon"></i>
+        {{/if}}
+        {{#if station.trendPressure == "steady"}}
+        <i class="huge right floated teal arrow right icon"></i>
+        {{/if}}
+        <p>Max: {{station.maxPressure}} kPa</p>
+        <p>Min: {{station.minPressure}} kPa</p>
+      </div>
+
+    </div>
+  </div>
+</div>
