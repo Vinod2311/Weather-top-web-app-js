@@ -17,8 +17,24 @@ const stationCtrl = {
     };
     logger.info("station rendering");
     response.render("station",{viewData,loggedInUser});
-   
+  },
+  
+  register(request, response) {
+    const user = request.body;
+    user.userId = uuid.v1();
+    userstore.addUser(user);
+    logger.info(`registering ${user.email}`);
+    response.redirect("/login");
+  },
+  
+  addReading(request,response){
+    const reading = request.body;
+    reading.id = uuid.v1();
+    stationStore.addStation(reading);
+    logger.info('adding reading')
+    response.redirect("station")
   }
+    
 };
 
 module.exports = stationCtrl;

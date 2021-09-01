@@ -2,12 +2,8 @@
 <section class="ui segment">
   <h2 class="ui center aligned header">
     {{viewData.station.name}}
-    {{#each viewData.station.readings}}
-      {{code}}
-    {{/each}}
   </h2>
-  {{#each viewData.station}}
-  {{>listReading }}
+  {{>listReading viewData.station}}
   {{>addReading}} 
 </section>
 <br>
