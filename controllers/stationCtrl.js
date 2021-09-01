@@ -30,9 +30,9 @@ const stationCtrl = {
   addReading(request,response){
     const reading = request.body;
     reading.id = uuid.v1();
-    stationStore.addStation(reading);
+    stationStore.addReading(reading);
     logger.info('adding reading')
-    response.redirect("station")
+    response.redirect("/dashboard")
   }
     
 };
