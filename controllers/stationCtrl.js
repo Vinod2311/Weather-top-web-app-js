@@ -8,13 +8,17 @@ const uuid = require("uuid");
 
 const stationCtrl = {
   index(request,response){
-    //const id = request.params.id;
-    //const station = stationStore.getStation(id);
+    const id = request.params.id;
+    const station = stationStore.getStation(id);
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: "Station",
+      station: station
     };
     logger.info("station rendering");
-    //response.render("start",loggedInUser);
+    response.render("station",{viewData,loggedInUser});
+   
   }
 };
+
+module.exports = stationCtrl;
