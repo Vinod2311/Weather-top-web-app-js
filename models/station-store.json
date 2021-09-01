@@ -53,6 +53,12 @@
           "windDirection": 102
         }
       ]
+    },
+    {
+      "id": "d3fd67b0-0ab9-11ec-89a9-7d848f9a6f53",
+      "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Dublin",
+      "readings": []
     }
   ]
 }
