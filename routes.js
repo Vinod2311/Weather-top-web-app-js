@@ -19,7 +19,7 @@ router.post("/authenticate", accounts.authenticate);
 router.get("/logout", accounts.logout);
 router.get("/dashboard", dashboard.index);
 router.get("/about", about.index);
-//router.get("/stations/:id", stationCtrl.index);
+router.get("/stations/:id", stationCtrl.index);
 router.get("/dashboard/deleteStation/:id", dashboard.deleteStation);
 router.get("/stations/:id/deleteReading/:readingId", dashboard.deleteReading);
 //router.post("/stations/:id/addReading", stationCtrl.addReading);
