@@ -2,6 +2,7 @@
 
 const _ = require("lodash");
 const JsonStore = require("./json-store");
+const logger = require("../utils/logger");
 
 const stationStore = {
   store: new JsonStore("./models/station-store.json", {
@@ -48,6 +49,13 @@ const stationStore = {
     const readings = station.readings;
     _.remove(readings, { id: readingId });
     this.store.save();
+  },
+  
+  dummy(id,readingId){
+    const station = id;
+    const readingId = readingId;
+    //const readings = station.readings;
+    logger.info("readings", station)
   },
 
   getReading(id, readingId) {
