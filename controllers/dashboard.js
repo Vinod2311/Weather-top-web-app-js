@@ -18,6 +18,12 @@ const dashboard = {
     response.render("dashboard", {viewData, loggedInUser});
   },
   
+  dummy(id,readingId){
+    const station = this.getStation(id);
+    const readings = station.readings;
+    logger.info("readings", station)
+  },
+  
   deleteStation(request, response) {
     const stationId = request.params.id;
     logger.debug(`Deleting station ${stationId}`);
