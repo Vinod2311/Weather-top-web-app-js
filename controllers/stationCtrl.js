@@ -21,11 +21,12 @@ const stationCtrl = {
   
   
   addReading(request,response){
+    const id = request.params.id;
     const reading = request.body;
     reading.id = uuid.v1();
-    stationStore.addReading(reading);
-    logger.info('adding reading')
-    response.redirect("/dashboard")
+    stationStore.addReading(id, reading);
+    logger.info('adding reading');
+    response.redirect("/station/{{id}}");
   }
     
 };
