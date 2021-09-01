@@ -5,6 +5,7 @@ const logger = require("../utils/logger");
 const accounts = require("./accounts.js")
 const stationStore = require("../models/station-store.js");
 const uuid = require("uuid");
+global.loggedInUser = accounts.getCurrentUser(ra);
 
 const dashboard = {
   index(request, response) {
