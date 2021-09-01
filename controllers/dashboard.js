@@ -28,8 +28,8 @@ const dashboard = {
   deleteReading(request, response) {
     const stationId = request.params.id;
     const readingId = request.params.readingId;
-    //stationStore.removeReading(stationId,readingId);
-    logger.info("station id", readingId);
+    stationStore.removeReading(stationId,readingId);
+    logger.info("station id", );
     response.redirect("/dashboard");
   },
   
