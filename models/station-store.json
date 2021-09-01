@@ -86,18 +86,6 @@
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "name": "dummy",
       "readings": []
-    },
-    {
-      "id": "5e5eb9b0-09f0-11ec-8d4d-43472257ccb0",
-      "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
-      "name": "dummy",
-      "readings": []
-    },
-    {
-      "id": "70fad310-09f0-11ec-8d4d-43472257ccb0",
-      "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
-      "name": "dummy",
-      "readings": []
     }
   ]
 }
