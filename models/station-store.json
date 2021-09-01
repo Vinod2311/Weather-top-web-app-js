@@ -53,39 +53,6 @@
           "windDirection": 102
         }
       ]
-    },
-    {
-      "id": "ddc7bf70-09ec-11ec-8f93-4fa58eb01d77",
-      "name": "Dublin",
-      "readings": []
-    },
-    {
-      "id": "fd0b49b0-09ec-11ec-8f93-4fa58eb01d77",
-      "name": "dummy",
-      "readings": []
-    },
-    {
-      "id": "7260fa20-09ed-11ec-9d10-e358129ae19a",
-      "name": "dummy",
-      "readings": []
-    },
-    {
-      "id": "b81b78b0-09ed-11ec-9b10-1b29b3214bbb",
-      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
-      "name": "dummy",
-      "readings": []
-    },
-    {
-      "id": "747f9ef0-09ee-11ec-b77d-e5f7fe19e2dc",
-      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
-      "name": "Dummy",
-      "readings": []
-    },
-    {
-      "id": "44bd2410-09f0-11ec-b77d-e5f7fe19e2dc",
-      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
-      "name": "dummy",
-      "readings": []
     }
   ]
 }
