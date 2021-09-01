@@ -53,6 +53,11 @@ const accounts = {
   getCurrentUser(request) {
     const userEmail = request.cookies.user;
     return userstore.getUserByEmail(userEmail);
+  },
+  
+  editUserDetails(request){
+    const user = request.body;
+    this.getCurrentUser(request);
   }
   
 };
