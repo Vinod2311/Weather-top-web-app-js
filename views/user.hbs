@@ -11,17 +11,17 @@
   <tbody>
   <tr>
     <td data-label="Field">First Name</td>
-    <td data-label="Value">${user.firstName}</td>
+    <td data-label="Value">{{loggedInUser.firstName}}</td>
   </tr>
   <tr>
     <td data-label="Field">Last Name</td>
-    <td data-label="Value">${user.lastName}</td>
+    <td data-label="Value">{{loggedInUser.lastName}}</td>
   </tr>
   <tr>
     <td data-label="Field">Email</td>
-    <td data-label="Value">${user.email}</td>
+    <td data-label="Value">{{loggedInUser.email}}</td>
   </tr>
   </tbody>
 </table>
-{{>editMemberDetails}}
+{{>editUserDetails}}
 <br>

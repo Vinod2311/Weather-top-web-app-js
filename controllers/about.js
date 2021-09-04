@@ -10,8 +10,9 @@ const about = {
     logger.info("about rendering");
     const viewData = {
       title: "About",
+      loggedInUser: loggedInUser
     };
-    response.render("about", {viewData, loggedInUser});
+    response.render("about", viewData);
   },
 };
 

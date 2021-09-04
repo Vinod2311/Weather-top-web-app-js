@@ -5,12 +5,35 @@ const logger = require("../utils/logger");
 const uuid = require("uuid");
 
 const accounts = {
-  index(request,response){
+
+  user(request,response){
+    const userEmail = request.cookies.user;
+    const loggedInUser = userstore.getUserByEmail(userEmail);
     const viewData = {
-      title: "Login or Signup"
-    }
-    response.render("index");
+      title: "User",
+      loggedInUser: loggedInUser
+
+    };
+    response.render("user",viewData);
   },
+
+  getCurrentUser(request) {
+    const userEmail = request.cookies.user;
+    return userstore.getUserByEmail(userEmail);
+  },
+
+  editUserDetails(request,response){
+    const userEmail = request.cookies.user;
+    const loggedInUser = userstore.getUserByEmail(userEmail);
+    const updatedUser = {
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
+    }
+    userstore.updateUser(loggedInUser, updatedUser);
+    response.redirect("/user");
+
+  },
+
   
   login(request, response) {
     const viewData = {
@@ -49,16 +72,9 @@ const accounts = {
       response.redirect("/login");
     }
   },
+
   
-  getCurrentUser(request) {
-    const userEmail = request.cookies.user;
-    return userstore.getUserByEmail(userEmail);
-  },
-  
-  editUserDetails(request){
-    const user = request.body;
-    this.getCurrentUser(request);
-  }
+
   
 };
 

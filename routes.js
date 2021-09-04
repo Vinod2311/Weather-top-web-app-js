@@ -13,15 +13,16 @@ const stationStore = require("./models/station-store.js");
 router.get("/", start.index);
 router.get("/signup", accounts.signup);
 router.get("/login", accounts.login);
+router.get("/user", accounts.user);
 router.post("/register", accounts.register);
 router.post("/authenticate", accounts.authenticate);
-//router.post("/member/editMemberDetails", accounts.editMemberDetails);
+router.post("/user/editUserDetails", accounts.editUserDetails);
 router.get("/logout", accounts.logout);
 router.get("/dashboard", dashboard.index);
 router.get("/about", about.index);
 router.get("/stations/:id", stationCtrl.index);
 router.get("/dashboard/deleteStation/:id", dashboard.deleteStation);
-router.get("/stations/:id/deleteReading/:readingId", dashboard.deleteReading);
+router.get("/stations/:id/deleteReading/:readingId", stationCtrl.deleteReading);
 router.post("/stations/:id/addReading", stationCtrl.addReading);
 router.post("/dashboard/addStation", dashboard.addStation)
 

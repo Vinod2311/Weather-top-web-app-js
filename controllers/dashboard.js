@@ -1,7 +1,7 @@
 "use strict";
 
 const logger = require("../utils/logger");
-
+const stationAnalytics = require("../utils/stationAnalytics.js")
 const accounts = require("./accounts.js")
 const stationStore = require("../models/station-store.js");
 const uuid = require("uuid");
@@ -10,13 +10,21 @@ const uuid = require("uuid");
 const dashboard = {
   index(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    const dummy = stationStore.getUserStations(loggedInUser.userId);
+    const stations = stationStore.getUserStations(loggedInUser.userId);
+    stationAnalytics.sortStationsAlphabetically(stations);
+    for (let i = 0; i< stations.length; i++){
+      if (stations[i].readings.length > 0) {
+        stationAnalytics.computeStationAnalytics(stations[i]);
+
+      }
+    }
     const viewData = {
       title: "Dashboard",
-      stations: stationStore.getUserStations(loggedInUser.userId)
+      stations: stations,
+      loggedInUser: loggedInUser,
     };
-    logger.info("dashboard rendering",loggedInUser);
-    response.render("dashboard", {viewData, loggedInUser});
+    logger.info("latest rendering",stations);
+    response.render("dashboard", viewData);
   },
   
   deleteStation(request, response) {
@@ -25,14 +33,7 @@ const dashboard = {
     stationStore.removeStation(stationId);
     response.redirect("/dashboard");
   },
-  
-  deleteReading(request, response) {
-    const stationId = request.params.id;
-    const readingId = request.params.readingId;
-    stationStore.removeReading(stationId,readingId);
-    logger.info("station id", );
-    response.redirect("/dashboard");
-  },
+
   
   addStation(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
@@ -40,8 +41,8 @@ const dashboard = {
       id: uuid.v1(),
       userId: loggedInUser.userId,
       name: request.body.name,
-      latitude: request.body.lat,
-      longitude: request.body.lng,
+      latitude: +request.body.lat,
+      longitude: +request.body.lng,
       readings: []
     };
     logger.info("Creating a new Station", newStation);

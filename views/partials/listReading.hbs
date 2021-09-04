@@ -1,40 +1,42 @@
 
 <table class="ui celled padded table">
-  <thead>
-  <tr>
-    
-    <th>Code</th>
-    <th>Temperature (<span>&#176;</span>C)</th>
-    <th>Wind Speed (km/hr)</th>
-    <th>Wind Direction (<span>&#176;</span>)</th>
-    <th>Pressure (mbar)</th>
-  </tr>
-  </thead>
-  
-  <tbody>
-     {{#each readings}}
-      <tr>
-          
-          <td>
-            {{code}}
-          </td>
-          <td>
-            {{temperature}}
-          </td>
-          <td>
-            {{windSpeed}}
-          </td>
-          <td>
-            {{windDirection}}
-          </td>
-          <td>
-            {{pressure}}
-          </td>
-          <td>
-            <a href="/stations/{{../id}}/deleteReading/{{id}}"><i class="red trash link icon"></i></a>
-          </td>
-      </tr>
+    <thead>
+    <tr>
+
+        <th>Code</th>
+        <th>Temperature (<span>&#176;</span>C)</th>
+        <th>Wind Speed (km/hr)</th>
+        <th>Wind Direction (<span>&#176;</span>)</th>
+        <th>Pressure (mbar)</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#each readings}}
+        <tr>
+            <td>
+                {{date}}
+            </td>
+            <td>
+                {{code}}
+            </td>
+            <td>
+                {{temperature}}
+            </td>
+            <td>
+                {{windSpeed}}
+            </td>
+            <td>
+                {{windDirection}}
+            </td>
+            <td>
+                {{pressure}}
+            </td>
+            <td>
+                <a href="/stations/{{../id}}/deleteReading/{{id}}"><i class="red trash link icon"></i></a>
+            </td>
+        </tr>
     {{/each}}
-  </tbody>
-  
+    </tbody>
+
 </table>

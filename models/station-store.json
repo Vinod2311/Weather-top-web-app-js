@@ -4,11 +4,12 @@
       "id": "01",
       "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "name": "Tramore",
-      "latitude": 52.1623500,
-      "longitude": -7.1524400,
+      "latitude": 52.16,
+      "longitude": -7.15,
       "readings": [
         {
           "id": "02",
+          "date": "25-04-2021 07:20",
           "code": 800,
           "temperature": 0.5,
           "windSpeed": 3.5,
@@ -17,23 +18,62 @@
         },
         {
           "id": "03",
+          "date": "25-05-2021 07:20",
           "code": 600,
           "temperature": 6,
           "windSpeed": 2,
-          "pressure": 1004,
-          "windDirection": 96
+          "windDirection": 200,
+          "pressure": 1004
+        },
+        {
+          "id": "04",
+          "date": "25-06-2021 07:20",
+          "code": 700,
+          "temperature": 8,
+          "windSpeed": 1,
+          "pressure": 1005
         }
-      ]
+      ],
+      "latestReading": {
+        "id": "1c39d7c0-0d8f-11ec-998f-a9b412df5b2c",
+        "date": "4-9-2021 15:48",
+        "code": 200,
+        "temperature": 9,
+        "windSpeed": 11,
+        "windDirection": 250,
+        "pressure": 1100,
+        "translatedWeatherCode": "Partial Clouds",
+        "temperatureInFahrenheit": 48.2,
+        "windBeaufort": 2,
+        "windChill": "7.26",
+        "windDirectionCompass": "West South-West"
+      },
+      "fallingTrendTemp": false,
+      "risingTrendTemp": true,
+      "steadyTrendTemp": false,
+      "maxTemp": 9,
+      "minTemp": 0.5,
+      "fallingTrendWind": false,
+      "risingTrendWind": false,
+      "steadyTrendWind": true,
+      "maxWind": 11,
+      "minWind": 2,
+      "fallingTrendPressure": false,
+      "risingTrendPressure": true,
+      "steadyTrendPressure": false,
+      "maxPressure": 1100,
+      "minPressure": 1002
     },
     {
       "id": "05",
       "userId": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
       "name": "Dunmore",
-      "latitude": 52.149994,
-      "longitude": -6.9833294,
+      "latitude": 52.14,
+      "longitude": -6.98,
       "readings": [
         {
           "id": "06",
+          "date": "25-02-2021 07:20",
           "code": 700,
           "temperature": 8,
           "windSpeed": 1,
@@ -42,6 +82,7 @@
         },
         {
           "id": "07",
+          "date": "25-03-2021 07:20",
           "code": 200,
           "temperature": 0.5,
           "windSpeed": 3.5,
@@ -49,6 +90,14 @@
           "windDirection": 102
         }
       ]
+    },
+    {
+      "id": "e0ab1450-0d91-11ec-bce5-9d4b903e70a9",
+      "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Dublin",
+      "latitude": 53.55,
+      "longitude": 43.44,
+      "readings": []
     }
   ]
 }

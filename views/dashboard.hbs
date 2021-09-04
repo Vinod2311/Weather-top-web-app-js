@@ -2,17 +2,19 @@
 
 <h1 class="ui small center aligned icon header">
   <i class="violet user icon"></i>
-  Welcome {{loggedInUser.firstName}} <h1>
+  Welcome {{loggedInUser.firstName}}
+</h1>
 <h1 class="ui center aligned header">
-  <a href="/member">
+  <a href="/user">
     <button class="ui green button">Edit Your Personal Details</button>
   </a>
 </h1>
 
-{{#each viewData.stations}}
+{{#each stations}}
   <section class="ui segment">
     <h2 class="ui center aligned header">
       {{name}}
+
     </h2>
     {{> latestReading}}
     <br>

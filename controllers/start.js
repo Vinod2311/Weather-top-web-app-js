@@ -8,9 +8,10 @@ const start = {
     logger.info("start rendering");
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
-      title: "Start"
+      title: "Start",
+      loggedInUser: loggedInUser
     };
-    response.render("start",{viewData, loggedInUser})
+    response.render("start",viewData)
   }  
 };
 
