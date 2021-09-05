@@ -102,7 +102,7 @@ const stationAnalytics = {
     },
 
     celsiusToFahrenheit(latestReading) {
-        latestReading.temperatureInFahrenheit = (32 + (9 / 5) * (latestReading.temperature));
+        latestReading.temperatureInFahrenheit = (32 + (9 / 5) * (latestReading.temperature)).toPrecision(3);
     },
 
     addZero(i) {

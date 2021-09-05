@@ -2,10 +2,10 @@
 
 const logger = require("../utils/logger");
 
-const accounts = require("./accounts.js")
+const accounts = require("./accounts.js");
 const stationStore = require("../models/station-store.js");
 const uuid = require("uuid");
-const stationAnalytics = require("../utils/stationAnalytics.js")
+const stationAnalytics = require("../utils/stationAnalytics.js");
 const axios = require("axios");
 
 const stationCtrl = {
@@ -46,7 +46,6 @@ const stationCtrl = {
             report.windSpeed = +reading.wind_speed;
             report.pressure = +reading.pressure;
             report.windDirection = +reading.wind_deg;
-
         }
         stationStore.addReading(stationId, report);
         console.log(report);
