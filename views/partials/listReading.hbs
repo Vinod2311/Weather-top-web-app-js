@@ -1,8 +1,82 @@
+<div class="ui segment" id="chart"></div>
+<div class="ui segment" id="chart2"></div>
+<script>
+    const data = {
+        labels: [
+            {{#each trendLabels}}
+                "{{this}}",
+            {{/each}}
+        ],
+        datasets: [
+            {
+                name: "Temperature", type: "line",
+                values: [
+                    {{#each tempTrendData}}
+                        {{this}},
+                    {{/each}}
+                ]
+
+            },
+            {
+                name: "Wind Speed", type: "line",
+                values: [
+                    {{#each windTrendData}}
+                        {{this}},
+                    {{/each}}
+                ]
+            }
+        ]
+    }
+
+    const chart = new frappe.Chart("#chart", {
+        title: "Temperature/Wind Trend",
+        data: data,
+        type: 'line',
+        height: 250,
+        colors: ['red'],
+        lineOptions: {
+            dotSize: 8
+        }
+    })
+
+    console.log(data);
+
+    const data2 = {
+        labels: [
+            {{#each trendLabels}}
+                "{{this}}",
+            {{/each}}
+        ],
+        datasets: [
+            {
+                name: "Pressure", type: "line",
+                values: [
+                    {{#each pressureTrendData}}
+                        {{this}},
+                    {{/each}}
+                ]
+
+            }
+
+        ]
+    }
+
+    const chart2 = new frappe.Chart("#chart2", {
+        title: "Pressure Trend",
+        data: data2,
+        type: 'bar',
+        height: 250,
+        colors: ['green'],
+        lineOptions: {
+            dotSize: 8
+        }
+    })
+</script>
 
 <table class="ui celled padded table">
     <thead>
     <tr>
-
+        <th>Date</th>
         <th>Code</th>
         <th>Temperature (<span>&#176;</span>C)</th>
         <th>Wind Speed (km/hr)</th>
@@ -38,5 +112,6 @@
         </tr>
     {{/each}}
     </tbody>
-
 </table>
+
+

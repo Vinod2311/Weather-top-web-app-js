@@ -1,28 +1,52 @@
 {{> menu id="dashboard"}}
 
 <h1 class="ui small center aligned icon header">
-  <i class="violet user icon"></i>
-  Welcome {{loggedInUser.firstName}}
+    <i class="violet user icon"></i>
+    Welcome {{loggedInUser.firstName}}
 </h1>
 <h1 class="ui center aligned header">
-  <a href="/user">
-    <button class="ui green button">Edit Your Personal Details</button>
-  </a>
+    <a href="/user">
+        <button class="ui green button">Edit Your Personal Details</button>
+    </a>
 </h1>
 
 {{#each stations}}
-  <section class="ui segment">
-    <h2 class="ui center aligned header">
-      {{name}}
+    <section class="ui segment">
+        <h2 class="ui center aligned header">
+            {{name}}
 
-    </h2>
-    {{> latestReading}}
-    <br>
-    
-    <div class="ui basic right aligned segment">
-      <a href="/stations/{{id}}"> <i class="teal big open folder icon"></i></a>
-      <a href="/dashboard/deleteStation/{{id}}"> <i class="red big trash icon"></i></a>
-    </div>
-  </section>
+        </h2>
+        {{> latestReading}}
+        <br>
+
+        <div class="ui basic right aligned segment">
+            <a href="/stations/{{id}}"> <i class="teal big open folder icon"></i></a>
+            <a href="/dashboard/deleteStation/{{id}}"> <i class="red big trash icon"></i></a>
+        </div>
+    </section>
 {{/each}}
+
+
+<div id="myMap" style="height: 500px;"></div>
+<script>
+    let myMap = L.map('myMap').setView([53.340233, -6.276553], 7);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoidmlub2QyMyIsImEiOiJja3Q3OWNqamowcTI0MnVxbGgxNTRhNmRsIn0.CqBpoAYTmGEFwggFfq-J5A', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1Ijoidmlub2QyMyIsImEiOiJja3Q3OWNqamowcTI0MnVxbGgxNTRhNmRsIn0.CqBpoAYTmGEFwggFfq-J5A'
+    }).addTo(myMap);
+    let i = 0;
+    let marker = [];
+        {{#each stations}}
+        marker.push(L.marker([{{latitude}}, {{longitude}}]).addTo(myMap));
+        marker[i].bindPopup("{{name}}").openPopup();
+        i++;
+        {{/each}}
+
+
+</script>
+
 {{> addStation}}

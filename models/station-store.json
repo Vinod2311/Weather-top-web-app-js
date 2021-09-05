@@ -10,7 +10,7 @@
         {
           "id": "02",
           "date": "25-04-2021 07:20",
-          "code": 800,
+          "code": 200,
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1002,
@@ -19,7 +19,7 @@
         {
           "id": "03",
           "date": "25-05-2021 07:20",
-          "code": 600,
+          "code": 500,
           "temperature": 6,
           "windSpeed": 2,
           "windDirection": 200,
@@ -28,41 +28,62 @@
         {
           "id": "04",
           "date": "25-06-2021 07:20",
-          "code": 700,
+          "code": 600,
           "temperature": 8,
           "windSpeed": 1,
+          "windDirection": 90,
           "pressure": 1005
+        },
+        {
+          "id": "3af93470-0e6c-11ec-8bea-a3cd00e60433",
+          "date": "5-9-2021 18:10",
+          "code": 803,
+          "temperature": 17.58,
+          "windSpeed": 1.34,
+          "pressure": 1019,
+          "windDirection": 197
         }
       ],
       "latestReading": {
-        "id": "1c39d7c0-0d8f-11ec-998f-a9b412df5b2c",
-        "date": "4-9-2021 15:48",
-        "code": 200,
-        "temperature": 9,
-        "windSpeed": 11,
-        "windDirection": 250,
-        "pressure": 1100,
-        "translatedWeatherCode": "Partial Clouds",
-        "temperatureInFahrenheit": 48.2,
-        "windBeaufort": 2,
-        "windChill": "7.26",
-        "windDirectionCompass": "West South-West"
+        "id": "04",
+        "date": "25-06-2021 07:20",
+        "code": 600,
+        "temperature": 8,
+        "windSpeed": 1,
+        "windDirection": 90,
+        "pressure": 1005,
+        "translatedWeatherCode": "Snow",
+        "weatherIcon": "snowflake",
+        "temperatureInFahrenheit": 46.4,
+        "windBeaufort": 1,
+        "windChill": "9.89",
+        "windDirectionCompass": "East"
       },
       "fallingTrendTemp": false,
       "risingTrendTemp": true,
       "steadyTrendTemp": false,
-      "maxTemp": 9,
+      "maxTemp": 8,
       "minTemp": 0.5,
-      "fallingTrendWind": false,
+      "fallingTrendWind": true,
       "risingTrendWind": false,
-      "steadyTrendWind": true,
-      "maxWind": 11,
-      "minWind": 2,
+      "steadyTrendWind": false,
+      "maxWind": 3.5,
+      "minWind": 1,
       "fallingTrendPressure": false,
       "risingTrendPressure": true,
       "steadyTrendPressure": false,
-      "maxPressure": 1100,
-      "minPressure": 1002
+      "maxPressure": 1005,
+      "minPressure": 1002,
+      "tempTrendData": [
+        0.5,
+        6,
+        8
+      ],
+      "trendLabels": [
+        "25-04-2021 07:20",
+        "25-05-2021 07:20",
+        "25-06-2021 07:20"
+      ]
     },
     {
       "id": "05",
@@ -74,7 +95,7 @@
         {
           "id": "06",
           "date": "25-02-2021 07:20",
-          "code": 700,
+          "code": 600,
           "temperature": 8,
           "windSpeed": 1,
           "pressure": 999,
@@ -83,20 +104,152 @@
         {
           "id": "07",
           "date": "25-03-2021 07:20",
-          "code": 200,
+          "code": 801,
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1000,
           "windDirection": 102
+        },
+        {
+          "id": "c65fe220-0d9a-11ec-b120-0dfbc9d53c16",
+          "date": "04-09-2021 17:11",
+          "code": 300,
+          "temperature": 8,
+          "windSpeed": 4,
+          "windDirection": 0,
+          "pressure": 1001
         }
-      ]
+      ],
+      "latestReading": {
+        "id": "07",
+        "date": "25-03-2021 07:20",
+        "code": 300,
+        "temperature": 0.5,
+        "windSpeed": 3.5,
+        "pressure": 1000,
+        "windDirection": 102,
+        "translatedWeatherCode": "Partial Clouds",
+        "temperatureInFahrenheit": 32.9,
+        "windBeaufort": 1,
+        "windChill": "-0.220",
+        "windDirectionCompass": "East South-East"
+      },
+      "fallingTrendTemp": false,
+      "risingTrendTemp": false,
+      "steadyTrendTemp": false,
+      "maxTemp": 8,
+      "minTemp": 0.5,
+      "fallingTrendWind": false,
+      "risingTrendWind": false,
+      "steadyTrendWind": false,
+      "maxWind": 3.5,
+      "minWind": 1,
+      "fallingTrendPressure": false,
+      "risingTrendPressure": false,
+      "steadyTrendPressure": false,
+      "maxPressure": 1000,
+      "minPressure": 999
     },
     {
       "id": "e0ab1450-0d91-11ec-bce5-9d4b903e70a9",
       "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "name": "Dublin",
-      "latitude": 53.55,
-      "longitude": 43.44,
+      "latitude": 53.35,
+      "longitude": -6.27,
+      "readings": [
+        {
+          "id": "de9029f0-0d99-11ec-b120-0dfbc9d53c16",
+          "date": "04-09-2021 17:05",
+          "code": 802,
+          "temperature": 10,
+          "windSpeed": 20,
+          "windDirection": 356,
+          "pressure": 1000
+        },
+        {
+          "id": "050856c0-0d9a-11ec-b120-0dfbc9d53c16",
+          "date": "04-09-2021 17:06",
+          "code": 300,
+          "temperature": 11,
+          "windSpeed": 9,
+          "windDirection": 360,
+          "pressure": 1000
+        },
+        {
+          "id": "4fd0c750-0d9a-11ec-b120-0dfbc9d53c16",
+          "date": "04-09-2021 17:08",
+          "code": 800,
+          "temperature": 12,
+          "windSpeed": 8,
+          "windDirection": 0,
+          "pressure": 1000
+        },
+        {
+          "id": "03e563e0-0e45-11ec-be92-071a84daa485",
+          "date": "05-09-2021 13:30",
+          "code": 804,
+          "temperature": 11.15,
+          "windSpeed": 4.07,
+          "pressure": 1017,
+          "windDirection": 322
+        }
+      ],
+      "latestReading": {
+        "id": "03e563e0-0e45-11ec-be92-071a84daa485",
+        "date": "05-09-2021 13:30",
+        "code": 804,
+        "temperature": 11.15,
+        "windSpeed": 4.07,
+        "pressure": 1017,
+        "windDirection": 322,
+        "translatedWeatherCode": "Cloudy",
+        "weatherIcon": "cloud",
+        "temperatureInFahrenheit": 52.07,
+        "windBeaufort": 1,
+        "windChill": "11.4",
+        "windDirectionCompass": "North-West"
+      },
+      "fallingTrendTemp": false,
+      "risingTrendTemp": false,
+      "steadyTrendTemp": true,
+      "maxTemp": 12,
+      "minTemp": 10,
+      "fallingTrendWind": true,
+      "risingTrendWind": false,
+      "steadyTrendWind": false,
+      "maxWind": 20,
+      "minWind": 4.07,
+      "fallingTrendPressure": false,
+      "risingTrendPressure": false,
+      "steadyTrendPressure": true,
+      "maxPressure": 1017,
+      "minPressure": 1000,
+      "tempTrendData": [
+        10,
+        11,
+        12,
+        11.15
+      ],
+      "trendLabels": [
+        "04-09-2021 17:05",
+        "04-09-2021 17:06",
+        "04-09-2021 17:08",
+        "05-09-2021 13:30"
+      ]
+    },
+    {
+      "id": "a0ea5840-0d9a-11ec-b120-0dfbc9d53c16",
+      "userId": "908ce440-0d9a-11ec-b120-0dfbc9d53c16",
+      "name": "Dummy",
+      "latitude": 10,
+      "longitude": 10,
+      "readings": []
+    },
+    {
+      "id": "b18cc480-0d9a-11ec-b120-0dfbc9d53c16",
+      "name": "Dummy",
+      "latitude": 15,
+      "longitude": 25,
       "readings": []
     }
   ]

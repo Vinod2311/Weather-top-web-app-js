@@ -6,13 +6,16 @@ const stationAnalytics = {
         station.latestReading = JSON.parse(JSON.stringify(station.readings[station.readings.length - 1]));
     },
 
-    computeStationAnalytics(station){
+    computeStationAnalytics(station) {
         this.latestReading(station);
         this.translateWeatherCode(station.latestReading);
         this.celsiusToFahrenheit(station.latestReading);
         this.beaufortConversion(station.latestReading);
         this.windChill(station.latestReading);
         this.windDirectionCompass(station.latestReading);
+        this.tempTrendGraph(station);
+        this.windTrendGraph(station);
+        this.pressureTrendGraph(station);
         this.trendInTemp(station);
         this.setMaxTemp(station);
         this.setMinTemp(station);
@@ -25,38 +28,88 @@ const stationAnalytics = {
     },
 
     translateWeatherCode(latestReading) {
+        const code = latestReading.code;
 
-        switch (latestReading.code) {
-            case 100:
+        switch (true) {
+            case [800].includes(code):
                 latestReading.translatedWeatherCode = "Clear";
+                latestReading.weatherIcon = "sun";
                 break;
-            case 200:
+            case [801].includes(code):
                 latestReading.translatedWeatherCode = "Partial Clouds";
+                latestReading.weatherIcon = "cloud sun";
                 break;
-            case 300:
+            case [701, 711, 721, 731, 741, 751, 761, 762, 771, 781].includes(code):
+                latestReading.translatedWeatherCode = "Haze";
+                latestReading.weatherIcon = "eye slash outline";
+                break;
+            case [802, 803, 804].includes(code):
                 latestReading.translatedWeatherCode = "Cloudy";
+                latestReading.weatherIcon = "cloud";
                 break;
-            case 400:
+            case [300, 310].includes(code):
                 latestReading.translatedWeatherCode = "Light Showers";
+                latestReading.weatherIcon = "shower";
                 break;
-            case 500:
+            case [302, 311, 312, 313, 314, 321].includes(code):
                 latestReading.translatedWeatherCode = "Heavy Showers";
+                latestReading.weatherIcon = "shower";
                 break;
-            case 600:
+            case [500, 501, 502, 503, 504, 511, 520, 521, 522, 531].includes(code):
                 latestReading.translatedWeatherCode = "Rain";
+                latestReading.weatherIcon = "tint";
                 break;
-            case 700:
+            case [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622].includes(code):
                 latestReading.translatedWeatherCode = "Snow";
+                latestReading.weatherIcon = "snowflake";
                 break;
-            case 800:
+            case [200, 201, 202, 210, 211, 212, 221, 230, 231, 232].includes(code):
                 latestReading.translatedWeatherCode = "Thunder";
+                latestReading.weatherIcon = "bolt";
                 break;
             default:
         }
     },
 
+
+    tempTrendGraph(station) {
+        station.tempTrendData = [];
+        station.trendLabels = [];
+
+        for (let i = 0; i < station.readings.length; i++) {
+            station.tempTrendData.push(station.readings[i].temperature);
+            station.trendLabels.push(station.readings[i].date);
+        }
+    },
+
+    windTrendGraph(station) {
+        station.windTrendData = [];
+
+        for (let i = 0; i < station.readings.length; i++) {
+            station.windTrendData.push(station.readings[i].windSpeed);
+
+        }
+    },
+
+    pressureTrendGraph(station) {
+        station.pressureTrendData = [];
+
+
+        for (let i = 0; i < station.readings.length; i++) {
+            station.pressureTrendData.push(station.readings[i].pressure);
+
+        }
+    },
+
     celsiusToFahrenheit(latestReading) {
         latestReading.temperatureInFahrenheit = (32 + (9 / 5) * (latestReading.temperature));
+    },
+
+    addZero(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
     },
 
     windChill(latestReading) {
@@ -87,7 +140,7 @@ const stationAnalytics = {
         compass.push("North North-West");
         let initialRange = 33.75;
         let count = 1;
-        for (let i = 11.25;i < 348.75;i += 22.5){
+        for (let i = 11.25; i < 348.75; i += 22.5) {
 
             if (latestReading.windDirection >= i && latestReading.windDirection <= initialRange) {
                 latestReading.windDirectionCompass = compass[count];
@@ -104,41 +157,41 @@ const stationAnalytics = {
 
     isBetween(input, lower, upper) {
         let output = false;
-        if (lower <= input && input <= upper){
+        if (lower <= input && input <= upper) {
             output = true;
-        };
+        }
+        ;
         return output;
     },
 
 
     beaufortConversion(latestReading) {
-    if (latestReading.windSpeed >= 0 && latestReading.windSpeed < 1) {
-        latestReading.windBeaufort = 0;
-    } else if (this.isBetween(latestReading.windSpeed, 1, 5)) {
-        latestReading.windBeaufort = 1;
-    } else if (this.isBetween(latestReading.windSpeed, 6, 11)) {
-        latestReading.windBeaufort = 2;
-    } else if (this.isBetween(latestReading.windSpeed, 12, 19)) {
-        latestReading.windBeaufort = 3;
-    } else if (this.isBetween(latestReading.windSpeed, 20, 28)) {
-        latestReading.windBeaufort = 4;
-    } else if (this.isBetween(latestReading.windSpeed, 29, 38)) {
-        latestReading.windBeaufort = 5;
-    } else if (this.isBetween(latestReading.windSpeed, 39, 49)) {
-        latestReading.windBeaufort = 6;
-    } else if (this.isBetween(latestReading.windSpeed, 50, 61)) {
-        latestReading.windBeaufort = 7;
-    } else if (this.isBetween(latestReading.windSpeed, 62, 74)) {
-        latestReading.windBeaufort = 8;
-    } else if (this.isBetween(latestReading.windSpeed, 75, 88)) {
-        latestReading.windBeaufort = 9;
-    } else if (this.isBetween(latestReading.windSpeed, 89, 102)) {
-        latestReading.windBeaufort = 10;
-    } else if (this.isBetween(latestReading.windSpeed, 103, 117)) {
-        latestReading.windBeaufort = 11;
-    }
-},
-
+        if (latestReading.windSpeed >= 0 && latestReading.windSpeed < 1) {
+            latestReading.windBeaufort = 0;
+        } else if (this.isBetween(latestReading.windSpeed, 1, 5)) {
+            latestReading.windBeaufort = 1;
+        } else if (this.isBetween(latestReading.windSpeed, 6, 11)) {
+            latestReading.windBeaufort = 2;
+        } else if (this.isBetween(latestReading.windSpeed, 12, 19)) {
+            latestReading.windBeaufort = 3;
+        } else if (this.isBetween(latestReading.windSpeed, 20, 28)) {
+            latestReading.windBeaufort = 4;
+        } else if (this.isBetween(latestReading.windSpeed, 29, 38)) {
+            latestReading.windBeaufort = 5;
+        } else if (this.isBetween(latestReading.windSpeed, 39, 49)) {
+            latestReading.windBeaufort = 6;
+        } else if (this.isBetween(latestReading.windSpeed, 50, 61)) {
+            latestReading.windBeaufort = 7;
+        } else if (this.isBetween(latestReading.windSpeed, 62, 74)) {
+            latestReading.windBeaufort = 8;
+        } else if (this.isBetween(latestReading.windSpeed, 75, 88)) {
+            latestReading.windBeaufort = 9;
+        } else if (this.isBetween(latestReading.windSpeed, 89, 102)) {
+            latestReading.windBeaufort = 10;
+        } else if (this.isBetween(latestReading.windSpeed, 103, 117)) {
+            latestReading.windBeaufort = 11;
+        }
+    },
 
 
     trendInTemp(station) {
@@ -160,32 +213,31 @@ const stationAnalytics = {
             }
 
 
-        }
-        else {
+        } else {
             station.fallingTrendTemp = false;
             station.risingTrendTemp = false;
             station.steadyTrendTemp = false;
         }
     },
 
-    setMaxTemp(station){
+    setMaxTemp(station) {
         station.maxTemp = null;
-        if (station.readings.length > 0){
+        if (station.readings.length > 0) {
             station.maxTemp = station.readings[0].temperature;
-            for (let i = 1; i <station.readings.length; i++){
-                if (station.readings[i].temperature > station.maxTemp){
+            for (let i = 1; i < station.readings.length; i++) {
+                if (station.readings[i].temperature > station.maxTemp) {
                     station.maxTemp = station.readings[i].temperature;
                 }
             }
         }
     },
 
-    setMinTemp(station){
+    setMinTemp(station) {
         station.minTemp = null;
-        if (station.readings.length > 0){
+        if (station.readings.length > 0) {
             station.minTemp = station.readings[0].temperature;
-            for (let i = 1; i <station.readings.length; i++){
-                if (station.readings[i].temperature < station.minTemp){
+            for (let i = 1; i < station.readings.length; i++) {
+                if (station.readings[i].temperature < station.minTemp) {
                     station.minTemp = station.readings[i].temperature;
                 }
             }
@@ -211,32 +263,31 @@ const stationAnalytics = {
             }
 
 
-        }
-        else {
+        } else {
             station.fallingTrendPressure = false;
             station.risingTrendPressure = false;
             station.steadyTrendPressure = false;
         }
     },
 
-    setMaxPressure(station){
+    setMaxPressure(station) {
         station.maxPressure = null;
-        if (station.readings.length > 0){
+        if (station.readings.length > 0) {
             station.maxPressure = station.readings[0].pressure;
-            for (let i = 1; i <station.readings.length; i++){
-                if (station.readings[i].pressure > station.maxPressure){
+            for (let i = 1; i < station.readings.length; i++) {
+                if (station.readings[i].pressure > station.maxPressure) {
                     station.maxPressure = station.readings[i].pressure;
                 }
             }
         }
     },
 
-    setMinPressure(station){
+    setMinPressure(station) {
         station.minPressure = null;
-        if (station.readings.length > 0){
+        if (station.readings.length > 0) {
             station.minPressure = station.readings[0].pressure;
-            for (let i = 1; i <station.readings.length; i++){
-                if (station.readings[i].pressure < station.minPressure){
+            for (let i = 1; i < station.readings.length; i++) {
+                if (station.readings[i].pressure < station.minPressure) {
                     station.minPressure = station.readings[i].pressure;
                 }
             }
@@ -262,39 +313,38 @@ const stationAnalytics = {
             }
 
 
-        }
-        else {
+        } else {
             station.fallingTrendWind = false;
             station.risingTrendWind = false;
             station.steadyTrendWind = false;
         }
     },
 
-    setMaxWind(station){
+    setMaxWind(station) {
         station.maxWind = null;
-        if (station.readings.length > 0){
+        if (station.readings.length > 0) {
             station.maxWind = station.readings[0].windSpeed;
-            for (let i = 1; i <station.readings.length; i++){
-                if (station.readings[i].windSpeed > station.maxWind){
+            for (let i = 1; i < station.readings.length; i++) {
+                if (station.readings[i].windSpeed > station.maxWind) {
                     station.maxWind = station.readings[i].windSpeed;
                 }
             }
         }
     },
 
-    setMinWind(station){
+    setMinWind(station) {
         station.minWind = null;
-        if (station.readings.length > 0){
+        if (station.readings.length > 0) {
             station.minWind = station.readings[0].windSpeed;
-            for (let i = 1; i <station.readings.length; i++){
-                if (station.readings[i].windSpeed < station.minWind){
+            for (let i = 1; i < station.readings.length; i++) {
+                if (station.readings[i].windSpeed < station.minWind) {
                     station.minWind = station.readings[i].windSpeed;
                 }
             }
         }
     },
 
-    sortStationsAlphabetically(stations){
+    sortStationsAlphabetically(stations) {
         stations.sort((a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase()));
     }
 

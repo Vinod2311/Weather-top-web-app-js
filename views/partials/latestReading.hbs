@@ -1,62 +1,62 @@
-
-    <div class="ui five stackable cards">
-        <div class="red fluid card">
-            <div class="content">
-              <i class="huge right floated blue city icon"></i>
-              <div class="header">{{name}}</div>
-              <div class="description">
+<div class="ui five inverted stackable cards">
+    <div class="red fluid card">
+        <div class="content">
+            <i class="huge right floated black city icon"></i>
+            <div class="header">{{name}}</div>
+            <div class="description">
                 <p>Lat: {{latitude}} <span>&#176;</span></p>
                 <p>Lng: {{longitude}} <span>&#176;</span></p>
-              </div>
             </div>
-          </div>
-        <div class="red fluid card">
-            <div class="content">
-              <i class=" huge right floated blue cloud sun icon"></i>
-              <div class="header">Weather</div>
-              <div class="description">
-                <p>{{latestReading.translatedWeatherCode}}</p>
-              </div>
-            </div>
-          </div>
+        </div>
+    </div>
+    <div class="red fluid card">
+        <div class="content">
 
-        <div class="red fluid card">
-        <div class="content">
-          <i class="huge right floated blue thermometer icon"></i>
-          <div class="header">Temp</div>
-          <div class="description">
-            <p>{{latestReading.temperature}} <span>&#176;</span>C</p>
-            <p>{{latestReading.temperatureInFahrenheit}} F</p>
-            <br>
-            {{#if risingTrendTemp}}
-                <i class="huge right floated orange arrow up icon"></i>
-            {{/if}}
-            {{#if fallingTrendTemp}}
-                <i class="huge right floated green arrow down icon"></i>
-            {{/if}}
-            {{#if steadyTrendTemp}}
-                <i class="huge right floated teal arrow right icon"></i>
-            {{/if}}
-            <p>Max: {{maxTemp}} <span>&#176;</span>C</p>
-            <p>Min: {{minTemp}} <span>&#176;</span>C</p>
-          </div>
+            <i class=" huge right floated teal {{latestReading.weatherIcon}} icon"></i>
+            <div class="header">Weather</div>
+            <div class="description">
+                <p>{{latestReading.translatedWeatherCode}}</p>
+            </div>
         </div>
-        </div>
-        <div class="red fluid card">
+    </div>
+
+    <div class="red fluid card">
         <div class="content">
-          <i class="huge right floated blue wind icon"></i>
-          <div class="header">Wind</div>
-          <div class="description">
+            <i class="huge right floated blue thermometer icon"></i>
+            <div class="header">Temp</div>
+            <div class="description">
+                <p>{{latestReading.temperature}} <span>&#176;</span>C</p>
+                <p>{{latestReading.temperatureInFahrenheit}} F</p>
+                <br>
+                {{#if risingTrendTemp}}
+                    <i class="huge right floated orange arrow up icon"></i>
+                {{/if}}
+                {{#if fallingTrendTemp}}
+                    <i class="huge right floated green arrow down icon"></i>
+                {{/if}}
+                {{#if steadyTrendTemp}}
+                    <i class="huge right floated teal arrow right icon"></i>
+                {{/if}}
+                <p>Max: {{maxTemp}} <span>&#176;</span>C</p>
+                <p>Min: {{minTemp}} <span>&#176;</span>C</p>
+            </div>
+        </div>
+    </div>
+    <div class="red fluid card">
+        <div class="content">
+            <i class="huge right floated green wind icon"></i>
+            <div class="header">Wind</div>
+            <div class="description">
                 <p>{{latestReading.windBeaufort}} bft</p>
                 <p>{{latestReading.windDirectionCompass}}</p>
                 {{#if risingTrendWind}}
-                <i class="huge right floated orange arrow up icon"></i>
+                    <i class="huge right floated orange arrow up icon"></i>
                 {{/if}}
                 {{#if fallingTrendWind}}
-                <i class="huge right floated green arrow down icon"></i>
+                    <i class="huge right floated green arrow down icon"></i>
                 {{/if}}
                 {{#if steadyTrendWind}}
-                <i class="huge right floated teal arrow right icon"></i>
+                    <i class="huge right floated teal arrow right icon"></i>
                 {{/if}}
                 <br>
                 <p>Feels like:</p>
@@ -64,31 +64,31 @@
                 <br>
                 <p>Max: {{maxWind}} km/hr</p>
                 <p>Min: {{minWind}} km/hr</p>
-          </div>
+            </div>
         </div>
-        </div>
+    </div>
 
     <div class="red fluid card">
         <div class="content">
-          <i class="huge right floated blue cloud download icon"></i>
-          <div class="header">Pressure</div>
-          <div class="description">
-            <p>{{latestReading.pressure}} kPa</p>
-            <br>
-            {{#if risingTrendPressure }}
-            <i class="huge right floated orange arrow up icon"></i>
-            {{/if}}
-            {{#if fallingTrendPressure }}
-            <i class="huge right floated green arrow down icon"></i>
-            {{/if}}
-            {{#if steadyTrendPressure }}
-            <i class="huge right floated teal arrow right icon"></i>
-            {{/if}}
-            <p>Max: {{maxPressure}} kPa</p>
-            <p>Min: {{minPressure}} kPa</p>
-          </div>
+            <i class="huge right floated orange cloud download icon"></i>
+            <div class="header">Pressure</div>
+            <div class="description">
+                <p>{{latestReading.pressure}} kPa</p>
+                <br>
+                {{#if risingTrendPressure }}
+                    <i class="huge right floated orange arrow up icon"></i>
+                {{/if}}
+                {{#if fallingTrendPressure }}
+                    <i class="huge right floated green arrow down icon"></i>
+                {{/if}}
+                {{#if steadyTrendPressure }}
+                    <i class="huge right floated teal arrow right icon"></i>
+                {{/if}}
+                <p>Max: {{maxPressure}} kPa</p>
+                <p>Min: {{minPressure}} kPa</p>
+            </div>
 
         </div>
-      </div>
     </div>
+</div>
 
