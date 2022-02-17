@@ -1,8 +1,19 @@
-Weather-Top in javascript
+Weather-top-web-application
 ==============================
 
-A starter project for learning Glitch.
+**This is a web application that allows users to add weather readings of different locations using Express framework.**
 
-This is an Express.js project, designed to work well with the Glitch development environment. It includes basic express
+- Accessible at https://weather-top-js-vy.glitch.me/
+
+Created using Glitch development environment. It includes basic express
 setup, templating, routing, JSON based model and session support.
 
+## Visual
+- A summary display of weather reading and any trends in the weather readings are automatically generated.
+- A map showing the location of the weather stations.
+  
+![alt-text](./Images/weather-top-readme-1.JPG)
+  
+- CRUD features for the weather readings.
+  
+![alt-text](./Images/weather-top-readme-2.JPG)
